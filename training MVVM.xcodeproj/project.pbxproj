@@ -128,8 +128,8 @@
 		7184B4B52909BFDC0051C162 /* training MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				71822296290B47CC00043F3F /* Data */,
 				7184B4CD2909C0060051C162 /* Supporting Files */,
+				71822296290B47CC00043F3F /* Data */,
 				71121E612909C12600A135D3 /* ViewControllers */,
 				71121E622909C12C00A135D3 /* Views */,
 				71121E642909C1A600A135D3 /* Models */,

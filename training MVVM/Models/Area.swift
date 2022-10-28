@@ -18,28 +18,6 @@ struct Area {
     }
 }
 
-//struct MockData {
-//    static let areaItems = [
-//    Area(ImageName: "Arbat", side: "ЦАО", name: "Арбатская 25"),
-//    Area(ImageName: "Sadovod", side: "ВАО", name: "Садоводская 19"),
-//    Area(ImageName: "RUDN", side: "ЮЗАО", name: "Бакинских комиссаров 28")
-//    ]
-//
-//}
-//
-//struct AreaInfo {
-//
-//    let imageName: String
-//    let streetName: String
-//    let infoStreet: String
-//
-//    init(imageName: String, streetName: String, infoStreet: String) {
-//        self.imageName = imageName
-//        self.streetName = streetName
-//        self.infoStreet = infoStreet
-//    }
-//
-//}
 
 
 
