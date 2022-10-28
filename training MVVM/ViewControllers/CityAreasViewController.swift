@@ -10,12 +10,12 @@ import SnapKit
 
 class CityAreasViewController: UIViewController {
     
-    private var areasItemsArray = MockData.areaItems
+    private var moscowDistricts = Moscow.districts
     
     // MARK: - UI elements
     
-    private var chooseCityTitleLabel = UILabel()
-    private var tableView = UITableView()
+    private var chooseLocationTitleLabel = UILabel()
+    private var tableView = UITableView(frame: .zero, style: .grouped)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,23 +29,53 @@ class CityAreasViewController: UIViewController {
         tableView.register(CityAreaTableViewCell.self, forCellReuseIdentifier: CityAreaTableViewCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.separatorStyle = .none
     }
 }
 
 extension CityAreasViewController: UITableViewDataSource, UITableViewDelegate {
     
+    //Секция это Тайтл округа. Пример: ЦАО, ЗАО. В нашем случае это 9 секций
+    func numberOfSections(in tableView: UITableView) -> Int {
+        moscowDistricts.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        areasItemsArray.count
+        moscowDistricts[section].areas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CityAreaTableViewCell.identifier, for: indexPath) as? CityAreaTableViewCell else { return UITableViewCell()}
-        cell.configureWithViewModel(areaItem: areasItemsArray[indexPath.row])
+        let district = moscowDistricts[indexPath.section] // формат district
+        let areas = district.areas // формат [Area]
+        let area = areas[indexPath.row] // формат Area
+        
+        
+        
+        cell.configureWithViewModel(areaItem: area)
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 316
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+
+        return moscowDistricts[section].name
+        
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.textLabel?.textColor = UIColor.black
+        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 26)
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("privet1")
+        let vc = MapViewController(area: moscowDistricts[indexPath.section].areas[indexPath.row])
+        vc.modalPresentationStyle = .popover
+        present(vc, animated: true)
+        
     }
     
 }
@@ -54,31 +84,22 @@ extension CityAreasViewController: UITableViewDataSource, UITableViewDelegate {
 extension CityAreasViewController {
     
     private func addSubviews() {
-        view.addSubview(chooseCityTitleLabel)
+//        view.addSubview(chooseLocationTitleLabel)
         view.addSubview(tableView)
     }
     
     private func setupSubviews() {
         
-        view.backgroundColor = .black
-        chooseCityTitleLabel.text = "Choose City"
-        chooseCityTitleLabel.textColor = .white
-        chooseCityTitleLabel.font = .systemFont(ofSize: 18, weight: .regular)
+        view.backgroundColor = .white
         
-        tableView.backgroundColor = .black
-        
+        tableView.backgroundColor = .white
     }
     
     private func configureConstraints() {
-        chooseCityTitleLabel.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.top.equalToSuperview().offset(51)
-        }
-        
+
         tableView.snp.makeConstraints {
-            $0.top.equalTo(chooseCityTitleLabel.snp.bottom).offset(16)
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(16)
             $0.leading.trailing.bottom.equalToSuperview()
-            
         }
     }
     

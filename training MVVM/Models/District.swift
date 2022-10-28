@@ -1,21 +1,23 @@
 //
-//  Area.swift
+//  District.swift
 //  training MVVM
 //
-//  Created by Богдан Баринов on 26.10.2022.
+//  Created by Богдан Баринов on 28.10.2022.
 //
 
 import Foundation
 
-struct Area {
+struct District {
     
-    let imageName: String
     let name: String
+    let areas: [Area]
     
-    init(imageName: String, name: String) {
-        self.imageName = imageName
+    init(name: String, areas: [Area]) {
         self.name = name
+        self.areas = areas
     }
+    
+
 }
 
 //struct MockData {
@@ -27,7 +29,7 @@ struct Area {
 //
 //}
 //
-//struct AreaInfo {
+//struct DistrictInfo {
 //
 //    let imageName: String
 //    let streetName: String
@@ -40,6 +42,3 @@ struct Area {
 //    }
 //
 //}
-
-
-
