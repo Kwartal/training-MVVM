@@ -10,6 +10,7 @@
 		116C84A0E77F3A401EA98203 /* Pods_training_MVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 813D29389E7EAFBBD73CB31A /* Pods_training_MVVM.framework */; };
 		71121E662909C4EC00A135D3 /* CityAreaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71121E652909C4EC00A135D3 /* CityAreaTableViewCell.swift */; };
 		71121E6A2909C89900A135D3 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71121E692909C89900A135D3 /* Area.swift */; };
+		7179E32D290F0F2600302785 /* AreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7179E32C290F0F2600302785 /* AreaViewController.swift */; };
 		71822295290B40DC00043F3F /* District.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71822294290B40DC00043F3F /* District.swift */; };
 		71822298290B47E100043F3F /* Moscow Districts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71822297290B47E100043F3F /* Moscow Districts.swift */; };
 		7182229A290B560400043F3F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71822299290B560400043F3F /* MapViewController.swift */; };
@@ -21,11 +22,13 @@
 		71C769AF290B258C00722E5E /* UIColor + Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C769AE290B258C00722E5E /* UIColor + Hex.swift */; };
 		71C769B1290B27F400722E5E /* CALayer + Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C769B0290B27F400722E5E /* CALayer + Shadow.swift */; };
 		71C769B3290B2FC100722E5E /* UIView + Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C769B2290B2FC100722E5E /* UIView + Gradient.swift */; };
+		71CAAEC42911497E00466C47 /* CityAreaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CAAEC32911497E00466C47 /* CityAreaViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		71121E652909C4EC00A135D3 /* CityAreaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityAreaTableViewCell.swift; sourceTree = "<group>"; };
 		71121E692909C89900A135D3 /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
+		7179E32C290F0F2600302785 /* AreaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaViewController.swift; sourceTree = "<group>"; };
 		71822294290B40DC00043F3F /* District.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = District.swift; sourceTree = "<group>"; };
 		71822297290B47E100043F3F /* Moscow Districts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moscow Districts.swift"; sourceTree = "<group>"; };
 		71822299290B560400043F3F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +42,7 @@
 		71C769AE290B258C00722E5E /* UIColor + Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Hex.swift"; sourceTree = "<group>"; };
 		71C769B0290B27F400722E5E /* CALayer + Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer + Shadow.swift"; sourceTree = "<group>"; };
 		71C769B2290B2FC100722E5E /* UIView + Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Gradient.swift"; sourceTree = "<group>"; };
+		71CAAEC32911497E00466C47 /* CityAreaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityAreaViewModel.swift; sourceTree = "<group>"; };
 		813D29389E7EAFBBD73CB31A /* Pods_training_MVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_training_MVVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99246619C7480CF1F4392283 /* Pods-training MVVM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-training MVVM.release.xcconfig"; path = "Target Support Files/Pods-training MVVM/Pods-training MVVM.release.xcconfig"; sourceTree = "<group>"; };
 		FC4439DF4B1B8CBB7F1D9092 /* Pods-training MVVM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-training MVVM.debug.xcconfig"; path = "Target Support Files/Pods-training MVVM/Pods-training MVVM.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				7184B4BA2909BFDC0051C162 /* CityAreasViewController.swift */,
+				7179E32C290F0F2600302785 /* AreaViewController.swift */,
 				71822299290B560400043F3F /* MapViewController.swift */,
 			);
 			path = ViewControllers;
@@ -130,9 +135,10 @@
 			children = (
 				7184B4CD2909C0060051C162 /* Supporting Files */,
 				71822296290B47CC00043F3F /* Data */,
+				71121E642909C1A600A135D3 /* Models */,
 				71121E612909C12600A135D3 /* ViewControllers */,
 				71121E622909C12C00A135D3 /* Views */,
-				71121E642909C1A600A135D3 /* Models */,
+				71CAAEC22911494A00466C47 /* ViewModels */,
 				7184B4C72909BFDD0051C162 /* Info.plist */,
 			);
 			path = "training MVVM";
@@ -158,6 +164,14 @@
 				71C769B2290B2FC100722E5E /* UIView + Gradient.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		71CAAEC22911494A00466C47 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				71CAAEC32911497E00466C47 /* CityAreaViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		B34A8393CE43AC3802688D3F /* Frameworks */ = {
@@ -289,8 +303,10 @@
 				71C769B1290B27F400722E5E /* CALayer + Shadow.swift in Sources */,
 				7184B4B72909BFDC0051C162 /* AppDelegate.swift in Sources */,
 				7184B4B92909BFDC0051C162 /* SceneDelegate.swift in Sources */,
+				7179E32D290F0F2600302785 /* AreaViewController.swift in Sources */,
 				71121E6A2909C89900A135D3 /* Area.swift in Sources */,
 				71121E662909C4EC00A135D3 /* CityAreaTableViewCell.swift in Sources */,
+				71CAAEC42911497E00466C47 /* CityAreaViewModel.swift in Sources */,
 				71822295290B40DC00043F3F /* District.swift in Sources */,
 				71C769B3290B2FC100722E5E /* UIView + Gradient.swift in Sources */,
 			);

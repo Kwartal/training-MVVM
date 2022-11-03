@@ -126,28 +126,28 @@ struct Moscow {
             Area(imageName: "Ясенево", name: "Ясенево")
         ]),
         District(name: "ЗАО", areas: [
-            Area(imageName: "", name: "Внуково"),
-            Area(imageName: "", name: "Дорогомилово"),
-            Area(imageName: "", name: "Крылатское"),
-            Area(imageName: "", name: "Кунцево"),
-            Area(imageName: "", name: "Можайский"),
-            Area(imageName: "", name: "Ново-Переделкино"),
-            Area(imageName: "", name: "Очаково-Матвеевское"),
-            Area(imageName: "", name: "Проспект Вернадского"),
-            Area(imageName: "", name: "Раменки"),
-            Area(imageName: "", name: "Солнцево"),
-            Area(imageName: "", name: "Тропарёво-Никулино"),
-            Area(imageName: "", name: "Филёвский парк"),
-            Area(imageName: "", name: "Фили-Давыдково")
+            Area(imageName: "Внуково", name: "Внуково"),
+            Area(imageName: "Дорогомилово", name: "Дорогомилово"),
+            Area(imageName: "Крылатское", name: "Крылатское"),
+            Area(imageName: "Кунцево", name: "Кунцево"),
+            Area(imageName: "Можайский", name: "Можайский"),
+            Area(imageName: "Ново-Переделкино", name: "Ново-Переделкино"),
+            Area(imageName: "Очаково-Матвеевское", name: "Очаково-Матвеевское"),
+            Area(imageName: "Проспект Вернадского", name: "Проспект Вернадского"),
+            Area(imageName: "Раменки", name: "Раменки"),
+            Area(imageName: "Солнцево", name: "Солнцево"),
+            Area(imageName: "Тропарёво-Никулино", name: "Тропарёво-Никулино"),
+            Area(imageName: "Филёвский парк", name: "Филёвский парк"),
+            Area(imageName: "Фили-Давыдково", name: "Фили-Давыдково")
         ]),
         District(name: "СЗАО", areas: [
-            Area(imageName: "", name: "Куркино"),
-            Area(imageName: "", name: "Митино"),
-            Area(imageName: "", name: "Покровское-Стрешнево"),
-            Area(imageName: "", name: "Строгино"),
-            Area(imageName: "", name: "Северное Тушино"),
-            Area(imageName: "", name: "Южное Тушино"),
-            Area(imageName: "", name: "Хорошёво-Мневники"),
-            Area(imageName: "", name: "Щукино")
+            Area(imageName: "Куркино", name: "Куркино"),
+            Area(imageName: "Митино", name: "Митино"),
+            Area(imageName: "Покровское-Стрешнево", name: "Покровское-Стрешнево"),
+            Area(imageName: "Строгино", name: "Строгино"),
+            Area(imageName: "Северное Тушино", name: "Северное Тушино"),
+            Area(imageName: "Южное Тушино", name: "Южное Тушино"),
+            Area(imageName: "Хорошёво-Мневники", name: "Хорошёво-Мневники"),
+            Area(imageName: "Щукино", name: "Щукино")
         ])]
 }

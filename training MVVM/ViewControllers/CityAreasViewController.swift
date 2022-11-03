@@ -8,21 +8,28 @@
 import UIKit
 import SnapKit
 
-class CityAreasViewController: UIViewController {
+final class CityAreasViewController: UIViewController {
     
-    private var moscowDistricts = Moscow.districts
+    private var viewModel: CityAreaViewModel
     
     // MARK: - UI elements
     
-    private var chooseLocationTitleLabel = UILabel()
     private var tableView = UITableView(frame: .zero, style: .grouped)
+    
+    init() {
+        viewModel = CityAreaViewModel()
+        super.init(nibName: nil, bundle: nil)
+        viewModel.delegate = self
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = viewModel.title
         setupSubviews()
-        addSubviews()
-        configureConstraints()
-        configureTableView()
     }
     
     private func configureTableView() {
@@ -38,29 +45,23 @@ extension CityAreasViewController: UITableViewDataSource, UITableViewDelegate {
     
     //Секция это Тайтл округа. Пример: ЦАО, ЗАО. В нашем случае это 9 секций
     func numberOfSections(in tableView: UITableView) -> Int {
-        moscowDistricts.count
+        viewModel.numberOfSections()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        moscowDistricts[section].areas.count
+        viewModel.numberOfRows(in: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CityAreaTableViewCell.identifier, for: indexPath) as? CityAreaTableViewCell else { return UITableViewCell()}
-        let district = moscowDistricts[indexPath.section] // формат district
-        let areas = district.areas // формат [Area]
-        let area = areas[indexPath.row] // формат Area
+            
         
-        
-        
-        cell.configureWithViewModel(areaItem: area)
+        cell.configureWithViewModel(areaItem: viewModel.area(for: indexPath))
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-
-        return moscowDistricts[section].name
-        
+        return viewModel.titleForHeader(in: section)
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -69,30 +70,25 @@ extension CityAreasViewController: UITableViewDataSource, UITableViewDelegate {
         header.textLabel?.font = UIFont.boldSystemFont(ofSize: 26)
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("privet1")
-        let vc = MapViewController(area: moscowDistricts[indexPath.section].areas[indexPath.row])
-        vc.modalPresentationStyle = .popover
-        present(vc, animated: true)
-        
+        viewModel.didSelectRow(at: indexPath)
     }
-    
 }
 
 // MARK: - Layout
 extension CityAreasViewController {
     
     private func addSubviews() {
-//        view.addSubview(chooseLocationTitleLabel)
         view.addSubview(tableView)
     }
     
     private func setupSubviews() {
-        
+        addSubviews()
+        configureConstraints()
+        configureTableView()
         view.backgroundColor = .white
-        
         tableView.backgroundColor = .white
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     private func configureConstraints() {
@@ -102,6 +98,14 @@ extension CityAreasViewController {
             $0.leading.trailing.bottom.equalToSuperview()
         }
     }
+}
+
+extension CityAreasViewController :  CityAreaViewModelDelegate {
     
+    func segueToAreaVC(area: Area) {
+        let vc = AreaViewController(area: area)
+        vc.modalPresentationStyle = .popover
+        present(vc, animated: true)
+    }
 }
 

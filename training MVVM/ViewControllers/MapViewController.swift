@@ -10,7 +10,7 @@ import MapKit
 import CoreLocation
 
 
-class MapViewController: UIViewController {
+final class MapViewController: UIViewController {
     
     var area: Area
     let titleLabel = UILabel()
@@ -40,26 +40,13 @@ class MapViewController: UIViewController {
         titleLabel.font = .systemFont(ofSize: 30)
         
         view.addSubview(mapView)
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         DispatchQueue.global().async {
             self.checkLocationServices()
         }
-        
-//        locationManager = CLLocationManager()
 
-//        locationManager.delegate = self
-//
-//        locationManager.requestWhenInUseAuthorization()
-//
-//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//
-//        locationManager.startUpdatingLocation()
-//
-//        locationManager.startMonitoringSignificantLocationChanges()
     }
     
     func setupLocationManager() {
@@ -132,36 +119,3 @@ extension MapViewController: CLLocationManagerDelegate {
     }
 }
 
-
-
-
-//// Here you can check whether you have allowed the permission or not.
-//
-//if CLLocationManager.locationServicesEnabled()
-//    {
-//        switch(CLLocationManager.authorizationStatus())
-//        {
-//
-//        case .authorizedAlways, .authorizedWhenInUse:
-//
-//            print("Authorize.")
-//
-//            break
-//
-//        case .notDetermined:
-//
-//            print("Not determined.")
-//
-//            break
-//
-//        case .restricted:
-//
-//            print("Restricted.")
-//
-//            break
-//
-//        case .denied:
-//
-//            print("Denied.")
-//        }
-//    }
